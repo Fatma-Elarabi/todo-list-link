@@ -1,0 +1,17 @@
+<div>
+    <h2>Todo List</h2>
+    <form [formGroup]="todoForm" (ngSubmit)="addToList()">
+      <input type="text" formControlName="item" class="todo_text" placeholder="Enter Items..." />
+  
+      <button class="btn-Add">Add</button>
+    </form>
+  
+    <hr />
+    <ul>
+      <li *ngFor="let item of itemsList">
+        <input type="checkbox" (change)="onCheckItem(item)"/>
+        <span [ngClass]="{'checked': item.isChecked}">{{item.name}}</span>
+        <button (click)="deleteItem(item)">Delete</button>
+      </li>
+    </ul>
+  </div>
